@@ -219,36 +219,3 @@ body {
     border: none;
 }
 
-@media (max-width: 900px) {
-
-    /* NAV */
-    .game-menu {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    /* CONTENT */
-    .content {
-        padding: 15px;
-    }
-
-    /* STATS */
-    .stats-grid {
-        grid-template-columns: 1fr; /* 🔥 1 column */
-    }
-
-    /* CARDS */
-    .card {
-        padding: 15px;
-    }
-
-    /* PERFORMANCE */
-    .metric-header {
-        font-size: 11px;
-    }
-
-    /* PDF */
-    .pdf-container {
-        height: 300px; /* μικρότερο για κινητό */
-    }
-}
