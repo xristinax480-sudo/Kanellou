@@ -304,3 +304,15 @@ blockquote {
     object-fit: contain;
     filter: drop-shadow(0 30px 40px rgba(0,0,0,0.7));
 }
+
+
+@media (max-width: 900px) {
+
+    .background-player {
+        position: absolute;
+        bottom: 0;
+        right: -50px;
+        width: 90%;
+        opacity: 0.08;
+    }
+}
