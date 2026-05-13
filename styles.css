@@ -1,0 +1,397 @@
+/* RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+body {
+    background: #0c0c16;
+    color: white;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* MAIN LAYOUT */
+.main-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+/* LEFT SECTION */
+.left-section {
+    width: 40%;
+    padding: 40px 60px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.game-menu {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.game-menu a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.6);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    position: relative;
+    transition: 0.3s;
+    
+}
+
+
+.game-menu a.active, .game-menu a:hover {
+    color: #26ab91;
+}
+
+.game-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0; height: 2px;
+    background: #26ab91;
+    bottom: -5px; left: 0;
+    transition: 0.3s;
+}
+
+.game-menu a.active::after, .game-menu a:hover::after {
+    width: 100%;
+}
+
+/* PLAYER HERO */
+.player-hero h1 {
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 0.9;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.last-name {
+    color: #fff;
+}
+
+.position-tag {
+    margin-top: 15px;
+    font-size: 18px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 2px;
+}
+
+/* CONTENT CARDS */
+.content-cards {
+    margin-top: 50px;
+    max-width: 450px;
+}
+
+.bio-card h3, .career-card h3 {
+    font-size: 18px;
+    border-left: 4px solid #26ab91;
+    padding-left: 15px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.bio-card p {
+    line-height: 1.6;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 40px;
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.year {
+    min-width: 100px;
+    color: #26ab91;
+    font-weight: 700;
+}
+
+.club strong { font-size: 16px; }
+.club p { font-size: 13px; opacity: 0.6; }
+
+.bio-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: 2px solid #26ab91;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.bio-btn:hover {
+    background: #26ab91;
+    transform: scale(1.05);
+}
+
+/* IMAGE SECTION (CENTER) */
+.image-section {
+    width: 30%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/*ΦΩΤΟΓΡΑΦΙΑ*/
+.player-img {
+    height: 60vh;
+    z-index: 5;
+    position: relative;
+    mask-image: linear-gradient(to top, transparent 0%, black 15%);
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 15%);
+    filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
+}
+
+.bg-number {
+    position: absolute;
+    bottom: 2%;
+    left: 20%;
+    transform: translateX(-50%);
+    font-size: 35vw;
+    font-weight: 900;
+    color: rgba(255,255,255,0.05);
+    z-index: 1;
+    line-height: 1;
+    user-select: none;
+}
+
+/* RIGHT SECTION */
+.right-section {
+    width: 30%;
+    background: linear-gradient(90deg, #0c0c16 0%, #26ab91 100%);
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-container {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.glass-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.snapshot h4 {
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.snapshot-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* SKILLS GRID */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.skill { text-align: center; }
+
+.circle {
+  --size: 55px; /* Ρύθμισε το μέγεθος που θες */
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  
+  /* Το μυστικό είναι εδώ: χρησιμοποιούμε τη μεταβλητή --p */
+  background: conic-gradient(
+    #f5b971 calc(var(--p) * 1%), 
+    rgba(255, 255, 255, 0.1) 0
+  );
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  margin: auto;
+  position: relative;
+}
+
+/* Προαιρετικό: Προσθέτει μια μικρή "τρύπα" στη μέση για να φαίνεται πιο clean (σαν δαχτυλίδι) */
+.circle::after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: #26ab91; /* Το χρώμα του φόντου της κάρτας σου */
+  border-radius: 50%;
+  z-index: 0;
+  
+}
+.circle span {
+    position: relative;
+    z-index: 2; /* Πάνω από την τρύπα */
+    font-weight: bold;
+    font-size: 16px;
+    color: rgb(34, 7, 7);
+}
+
+
+/* Βάζουμε το νούμερο πάνω από το after */
+.circle {
+  color: white;
+  z-index: 1;
+}
+.skill span { font-size: 10px; text-transform: uppercase; opacity: 0.7; }
+
+/* MINI STATS */
+.season-header h3 {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.mini-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.stat-box {
+    background: rgba(0,0,0,0.3);
+    padding: 15px 5px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+    background: rgba(0,0,0,0.5);
+}
+
+.stat-box span { font-size: 10px; opacity: 0.6; display: block; }
+.stat-box strong { font-size: 24px; display: block; margin: 5px 0; }
+.stat-box img { width: 20px; opacity: 0.8; }
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+    .main-wrapper { flex-direction: column; }
+    .left-section, .image-section, .right-section { width: 100%; }
+    .image-section { order: -1; height: 50vh; overflow: hidden; }
+    .player-img { height: 100%; }
+    .right-section { background: #0c0c16; padding-bottom: 60px; }
+}
+
+/* SKILLS GRID */
+.skills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Το στοιχείο που περιέχει τον κύκλο και το κείμενο */
+.skill {
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Ο κύκλος με το κυκλικό γέμισμα */
+.circle {
+    --size: 60px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background: conic-gradient(
+        #f5b971 calc(var(--p) * 1%), 
+        rgba(255, 255, 255, 0.1) 0
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Εφέ ελατηρίου */
+    z-index: 2;
+}
+
+/* Η "τρύπα" στη μέση για να φαίνεται σαν δαχτυλίδι */
+.circle::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background: #1a0b0c; /* Το χρώμα του φόντου της κάρτας σου */
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Το νούμερο μέσα στον κύκλο */
+.circle span {
+    position: relative;
+    z-index: 3; /* Πάνω από την τρύπα */
+    font-weight: 900;
+    font-size: 16px;
+    color: #fff;
+}
+
+/* Το κείμενο κάτω από τον κύκλο (π.χ. Attacking) */
+.skill > span {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+/* --- ΤΟ ΕΦΕ ΑΥΤΟΜΑΤΟΥ ΖΟΥΜ ΣΤΟ HOVER --- */
+.skill:hover .circle {
+    transform: scale(1.3); /* Μεγεθύνει απευθείας */
+    z-index: 10; /* Έρχεται μπροστά από όλα τα άλλα */
+    box-shadow: 0 0 20px rgba(245, 185, 113, 0.5); /* Λάμψη γύρω από τον κύκλο */
+}
+
+.skill:hover > span {
+    opacity: 1;
+    color: #f5b971;
+    font-weight: bold;
+}
